@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         circleText.textContent = '';
     })
 
-    const hero = document.querySelector('.hero');
+    const hero = document.querySelector('.ui-hero-section');
     if (!hero) return;
     
     const tl = gsap.timeline({

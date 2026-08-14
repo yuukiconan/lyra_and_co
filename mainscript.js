@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
         circle.classList.remove('visible');
     })
 
-    const hero = document.querySelector('.hero');
+    const hero = document.querySelector('.ui-hero-section');
     if (!hero) return;
     if (!hero.classList.contains('loaded')) lenis.stop();
 

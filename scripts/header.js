@@ -10,12 +10,18 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('header').innerHTML = data;
 
         const header = document.querySelector('header');
-        let lastScrollY = window.scrollY;
         const headerContent = header.querySelector('.header-left h1');
         
+        let lastScrollY = window.scrollY;
+        const threshold = 30;
+        
         window.addEventListener('scroll', () => {
-            let currentScrollY = window.scrollY;
-            currentScrollY > lastScrollY ? headerContent.classList.add('hide') : headerContent.classList.remove('hide');
+            const currentScrollY = window.scrollY;
+            const delta = currentScrollY - lastScrollY;
+            
+            if (Math.abs(delta) < threshold) return;
+            
+            headerContent.classList.toggle('hide', delta > 0);
             
             lastScrollY = currentScrollY;
         }); 
@@ -29,10 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function menuFadeIn() {
             hamburgerMenu.style.animation = `inUpDynamic .7s cubic-bezier(.83,.41,.11,.99)`;
-
-            hamburgerMenu.addEventListener('animationend', () => {
-                hamburger.disabled = false;
-            })
         }
         
         function openMenu() {
@@ -48,6 +50,10 @@ document.addEventListener('DOMContentLoaded', () => {
                         setTimeout(() => {
                             btn.classList.add('visible');
                         }, index * 40)
+                        
+                        btn.addEventListener('transitionend', () => {
+                            hamburger.disabled = false;
+                        }, {once: true})
                     })
                 }, 500);
             });
@@ -62,7 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     hamburgerMenu.classList.add('hidden');
                     hamburger.classList.remove('active');
                     hamburger.disabled = false;
-
                 }
             });
         }
@@ -80,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 setTimeout(() => {
                     menuFadeOut();
-                }, 400)
+                }, 420)
             });
         }
 

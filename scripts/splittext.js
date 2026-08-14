@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const hero = document.querySelector('.hero');
+    const hero = document.querySelector('.ui-hero-section');
     const percent = document.querySelector('.percentage');
     const uiPeoples = document.querySelectorAll('.stagger-element');
     
