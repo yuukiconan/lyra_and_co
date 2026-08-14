@@ -1,0 +1,189 @@
+import LyraUI from "./scripts/framework.js";
+
+const lyra = LyraUI ? new LyraUI("1.1", "Lyra & Co.") : null;
+window.lyra = lyra;
+
+const icon = document.createElement('link');
+icon.rel = 'website icon';
+icon.href = '/assets/images/lyra.png';
+document.head.appendChild(icon);
+
+history.scrollRestoration = 'manual';
+
+const lenis = new Lenis({
+    duration: 2,
+    smooth: true,
+    autoRaf: false,
+    mouseMultiplier: 1,
+    smoothTouch: false,
+    touchMultiplier: 2,
+    infinite: false,
+})
+
+window.lenis = lenis;
+
+gsap.registerPlugin(ScrollTrigger);
+
+lenis.on("scroll", () => {
+    ScrollTrigger.update();
+});
+
+gsap.ticker.add((time) => {
+    lenis.raf(time * 1000);
+});
+
+gsap.ticker.lagSmoothing(0);
+
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+
+    if (hamburgerMenu) {
+        if (!hamburgerMenu.classList.contains('hidden')) {
+            lenis.stop();
+        } else {
+            lenis.start();
+        }
+        
+    }
+    
+    const peopleCards = document.querySelectorAll('.ui-card-people');
+    if (!peopleCards) return;
+
+    const root = document.documentElement;
+    
+    const circle = document.createElement('div');
+    const circleText = document.createElement('span');
+    circle.className = 'acrylic';
+    circleText.className = 'circle-text';
+    peopleCards.forEach(el => {
+        el.setAttribute('data-circle-text', 'Enter');
+        el.setAttribute('tabIndex', '0');
+
+        function redirectToPerson() {
+            if (el.dataset.person) {
+                const personId = el.dataset.person;
+                const targetLink = `/about/${personId}.html`;
+
+                window.location.href = targetLink;
+            }
+        }
+
+        el.addEventListener('click', redirectToPerson);
+        el.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                redirectToPerson();
+            }
+        })
+    });
+    
+    const texts = document.querySelectorAll('[data-circle-text]');
+    texts.forEach(el => {
+        el.addEventListener('pointerenter', () => {
+            circleText.textContent = el.dataset.circleText;
+            circleText.classList.add('visible');
+        });
+        el.addEventListener('pointerleave', () => {
+            circleText.classList.remove('visible');
+        })
+    })
+
+    circle.appendChild(circleText);
+    root.appendChild(circle);
+    let usingMouse = false;
+    
+    
+    window.addEventListener('pointermove', (e) => {
+        if (e.pointerType === 'mouse') {
+            usingMouse = true;
+            circle.classList.add('visible');
+        } else {
+            usingMouse = false;
+            circle.classList.remove('visible');
+        }
+        
+        const x = e.clientX - (circle.offsetWidth / 2);
+        const y = e.clientY - (circle.offsetHeight / 2);
+
+        circle.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+    })
+
+    root.addEventListener('pointerleave', () => {
+        circle.classList.remove('visible');
+    })
+
+    const hero = document.querySelector('.hero');
+    if (!hero) return;
+    if (!hero.classList.contains('loaded')) lenis.stop();
+
+    let timeout = setTimeout(() => {
+        hero.classList.add('loaded')
+        lenis.start();
+
+        hero.addEventListener('transitionend', () => {
+            ScrollTrigger.refresh();
+        })
+    }, 2000)
+
+    document.addEventListener('hero:loadComplete', () => {
+        clearTimeout(timeout);
+        timeout = null;
+    })
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY <= 0) {
+            setTimeout(() => {
+                hero.classList.remove('loaded');
+                hero.classList.add('backToPos');
+            }, 200);
+        }
+        if (hero.classList.contains('backToPos') && window.scrollY > 10) {
+            hero.classList.remove('backToPos');
+            hero.classList.add('loaded');
+        }
+    }, {passive: true});
+
+    document.fonts.ready.then(() => {
+        const split = new SplitText(".hero-content h1", { type: "words" });
+        
+        gsap.from(split.words, {
+            duration: 0.6,
+            y: 35,
+            opacity: 0,
+            stagger: 0.15,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: ".hero-content",
+                scrub: false,
+                markers: false,
+            }
+        });
+    });
+
+    // Dialog handler
+    function openDialog(className) {
+        document.querySelector(`.${className}`)?.showModal();
+    }
+
+    document.addEventListener('click', (e) => {
+        const dialogOpen = e.target.closest('[data-dialog-open]');
+        if (dialogOpen) {
+            openDialog(dialogOpen.dataset.dialogOpen);
+            root.classList.add('noscroll');
+            lenis.stop();
+        }
+
+        const closeBtn = e.target.closest('[data-dialog-close]');
+        const dialog = closeBtn?.closest('dialog');
+        if (closeBtn) {
+            requestAnimationFrame(() => {
+                dialog.style.animation = `fadeOut 350ms cubic-bezier(0.5, 0, 0.75, 0)`;
+                dialog.addEventListener('animationend', () => {
+                    closeBtn.closest('dialog')?.close();
+                    dialog.style.animation = '';
+                    root.classList.remove('noscroll');
+                    lenis.start();
+                }, {once: true});
+            })
+        }
+    });
+})
