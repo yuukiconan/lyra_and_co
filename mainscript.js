@@ -123,6 +123,13 @@ document.addEventListener('DOMContentLoaded', () => {
             ScrollTrigger.refresh();
         })
     }, 2000)
+    
+    const isEntrance = document.querySelector('.ui-hero-section.isEntrance');
+    if (isEntrance) {
+        setTimeout(() => {
+            isEntrance.style.height = '0svh';
+        }, 2600);
+    }
 
     document.addEventListener('hero:loadComplete', () => {
         clearTimeout(timeout);

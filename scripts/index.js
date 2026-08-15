@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
         gsap.to('.hero-content img', {
             scale: 0,
             opacity: 0,
-            duration: 1.1,
+            duration: 1,
             ease: "power1.inOut"
         })
         
@@ -65,6 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
             scale: 0.7,
             opacity: 0,
             duration: 0.8,
+            delay: 1.2,
             ease: "power3"
         }).from('.hero-first-glance .video-frame-subtext', {
             scale: 0.7,
