@@ -33,6 +33,25 @@ document.addEventListener('DOMContentLoaded', () => {
         const root = document.documentElement;
         const lenis = window.lenis;
 
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 1024) {
+                lenis.start();
+                hamburgerMenu.classList.add('hidden');
+                hamburger.classList.remove('active');
+
+                requestAnimationFrame(() => {
+                    const array = Array.from(staggerElements).reverse();
+
+                    array.forEach((btn, index) => {
+                        setTimeout(() => {
+                            btn.classList.remove('visible');
+                        }, index * 0)
+                    });
+
+                });
+            }
+        })
+        
         function menuFadeIn() {
             hamburgerMenu.style.animation = `inUpDynamic .7s cubic-bezier(.83,.41,.11,.99)`;
         }
@@ -103,21 +122,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
         hamburger.addEventListener('click', toggleMenuVisibility);
 
-        // Dark & Light mode handler
+        
         const themeToggle = document.querySelector('.theme-toggle');
+        const themeToggleDesktop = document.getElementById('theme-toggle-desktop');
         const theme = localStorage.getItem('theme') === 'true';
+        
+        function updateTheme(isLight) {
+            root.classList.toggle('light-mode', isLight);
 
-        if (theme) {
-            root.classList.toggle('light-mode', theme);
-            themeToggle.textContent = theme ? "Theme: Light" : "Theme: Dark";
+            if (themeToggle) {
+                themeToggle.textContent = isLight ? "Theme: Light" : "Theme: Dark";
+            }
+
+            const icon = themeToggleDesktop?.querySelector('i');
+            if (icon) {
+                icon.className = isLight ? 'ri-sun-line' : 'ri-moon-line';
+            }
+        }
+        
+        // Dark & Light mode handler
+        function changeTheme(selector) {
+            if (!selector) return;
+
+            selector.addEventListener('click', () => {
+                const isLight = !root.classList.contains('light-mode');
+                
+                localStorage.setItem('theme', isLight);
+                updateTheme(isLight)
+            });
         }
 
-        themeToggle.addEventListener('click', () => {
-            const isClick = root.classList.toggle('light-mode');
-            
-            localStorage.setItem('theme', isClick);
-            themeToggle.textContent = isClick ? "Theme: Light" : "Theme: Dark";
-        });
+        updateTheme(theme);
+
+        changeTheme(themeToggle);
+        changeTheme(themeToggleDesktop);
+
     })
     .catch(err => {
         console.error(err);

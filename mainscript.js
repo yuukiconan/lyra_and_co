@@ -80,32 +80,40 @@ document.addEventListener('DOMContentLoaded', () => {
     texts.forEach(el => {
         el.addEventListener('pointerenter', () => {
             circleText.textContent = el.dataset.circleText;
+            circle.classList.add('visible');
             circleText.classList.add('visible');
         });
         el.addEventListener('pointerleave', () => {
             circleText.classList.remove('visible');
+            circle.classList.remove('visible');
         })
     })
 
     circle.appendChild(circleText);
     root.appendChild(circle);
-    let usingMouse = false;
     
+    let mouseX = 0;
+    let mouseY = 0;
+    let raf = null;
+
+    function updateCirclePosition() {
+        circle.style.setProperty('--cursor-x', `${mouseX}px`);
+        circle.style.setProperty('--cursor-y', `${mouseY}px`);
+
+        raf = null;
+    }
     
     window.addEventListener('pointermove', (e) => {
-        if (e.pointerType === 'mouse') {
-            usingMouse = true;
-            circle.classList.add('visible');
-        } else {
-            usingMouse = false;
-            circle.classList.remove('visible');
-        }
         
-        const x = e.clientX - (circle.offsetWidth / 2);
-        const y = e.clientY - (circle.offsetHeight / 2);
+        mouseX = e.clientX;
+        mouseY = e.clientY;
 
-        circle.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+        if (!raf) {
+            raf = requestAnimationFrame(updateCirclePosition);
+        }
+
     })
+    
 
     root.addEventListener('pointerleave', () => {
         circle.classList.remove('visible');

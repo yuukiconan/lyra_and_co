@@ -47,6 +47,7 @@ var scrollTween = gsap.to(track, {
         pin: true,
         start: "top top",
         scrub: 1,
+        invalidateOnRefresh: true,
         snap: {
             snapTo: 1 / (sections.length - 1),
             duration: 0.6,
