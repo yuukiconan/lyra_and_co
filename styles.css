@@ -362,7 +362,7 @@
         padding: 2em 50px;
     }
     a {
-        color: inherit;
+        color: var(--color-text-gray);
         text-decoration: none;
         cursor: pointer;
     }
@@ -944,7 +944,7 @@
         display: inline;
         text-align: center;
         color: var(--color-text);
-        font-size: var(--font-xl);
+        font-size: var(--ui-size-9xl);
     }
     .hero-center img {
         width: 400px;
@@ -1057,7 +1057,7 @@
 
     .ui-hero {
         
-		padding: clamp(1.5rem, 3vw, 2.5rem) var(--ui-gutter) clamp(3rem, 6vw, 5rem);
+		padding: clamp(5rem, 3vw, 6rem) var(--ui-gutter) clamp(3rem, 6vw, 5rem);
 		max-width: var(--ui-max-width);
 	}
 
@@ -1914,6 +1914,11 @@
     .footer-section button {
         padding: 2px 0;
         font-size: 16px;
+        color: var(--color-text-gray);
+        transition: color .5s;
+    }
+    .footer-section button:hover {
+        color: var(--color-text);
     }
     .footer-bottom {
         display: flex;
@@ -1988,7 +1993,7 @@
     section.isImmersive {
         padding-top: 80px;
     }
-    main:has(section.isImmersive) {
+    main:has(section.isImmersive, .hero.loaded.willDisappear) {
         padding-top: 0;
     }
     section.rm-padding {
@@ -2365,9 +2370,6 @@
 }
 
 @media (max-width: 860px) {
-    .ui-hero {
-        padding: 20px 30px;
-    }
 		.ui-hero__grid {
 			grid-template-columns: repeat(1, 1fr);
 		}
@@ -2419,7 +2421,7 @@
     .header-right { right: 22px; }
 
     .hero-center h1 {
-        font-size: var(--font-m);
+        font-size: var(--font-xl);
     }
     .ui-hero-section .loading {
         position: absolute;
