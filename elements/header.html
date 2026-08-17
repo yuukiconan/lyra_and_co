@@ -3,11 +3,6 @@
         <a href="/"><h1><b>Lyra</b> & Co.</h1></a>
     </div>
     <div class="header-center">
-        <nav>
-            
-        </nav>
-    </div>
-    <div class="header-right">
         <nav class="navigation-links">
             <a href="/projects.html">Projects</a>
             <a href="/segments.html">Segments</a>
@@ -15,9 +10,11 @@
             <a href="/magazine.html">Magazine</a>
             <a href="/resources.html">Resources</a>
         </nav>
+    </div>
+    <div class="header-right">
         <div class="action-buttons">
-            <button data-dialog-open="search-menu"><i class="ri-search-line"></i></button>
             <button id="theme-toggle-desktop"><i class="ri-moon-line"></i></button>
+            <button data-dialog-open="chat-menu"><i class="ri-customer-service-2-line"></i></button>
         </div>
         <button class="nav-button hamburger"><div class="line line-1"></div><div class="line line-2"></div></button>
     </div>
@@ -80,12 +77,39 @@
         <h1></h1>
         <button class="close-btn" data-dialog-close><div class="line line-1"></div><div class="line line-2"></div></button>
     </div>
-    <div class="dialog-content">
-        <input type="search" hidden placeholder="Search content in Lyra...">
-        <div class="sorry">
-            <h1>Search is in our project queue!</h1>
-            <p>But don't worry, you can still access our preview in Lyra & Co. We're sorry for the inconvenience!</p>
+    <div class="dialog-content compact">
+        <input type="search" class="search-text" placeholder="Search content in Lyra...">
+        <div class="search-suggestion">
+            <h2>Suggestions</h2>
+            <div class="suggestion-panel">
+                <h1>Layout Test</h1>
+                <p>Layout testing for UISearchPanel</p>
+            </div>
+            <div class="suggestion-panel">
+                <h1>Layout Test</h1>
+                <p>Layout testing for UISearchPanel</p>
+            </div>
+            <div class="suggestion-panel">
+                <h1>Layout Test</h1>
+                <p>Layout testing for UISearchPanel</p>
+            </div>
+            <div class="suggestion-panel">
+                <h1>Layout Test</h1>
+                <p>Layout testing for UISearchPanel</p>
+            </div>
         </div>
+    </div>
+    <div class="dialog-footer">
+
+    </div>
+</dialog>
+<dialog class="on-the-side chat-menu" data-lenis-prevent>
+    <div class="dialog-header">
+        <h1></h1>
+        <button class="close-btn" data-dialog-close><div class="line line-1"></div><div class="line line-2"></div></button>
+    </div>
+    <div class="dialog-content">
+        <h1>Live Chat is coming soon!</h1>
     </div>
     <div class="dialog-footer">
 

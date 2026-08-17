@@ -8,10 +8,16 @@ icon.rel = 'website icon';
 icon.href = '/assets/images/lyra.png';
 document.head.appendChild(icon);
 
+const iconCdn = document.createElement('link');
+iconCdn.rel = 'stylesheet';
+iconCdn.href = 'https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css';
+document.head.appendChild(iconCdn);
+
 history.scrollRestoration = 'manual';
 
 const lenis = new Lenis({
-    duration: 2,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    duration: 1.2,
     smooth: true,
     autoRaf: false,
     mouseMultiplier: 1,

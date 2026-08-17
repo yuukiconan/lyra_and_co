@@ -41,7 +41,7 @@ export default class LyraUI {
                     obs.unobserve(el);
                 }
             });
-        }, {threshold, rootMargin: '0px 0px -25% 0px'});
+        }, {threshold, rootMargin: '0px 0px -50% 0px'});
         
         elements.forEach(el => observer.observe(el));
     }
