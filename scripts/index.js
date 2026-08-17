@@ -1,3 +1,10 @@
+import LyraUI from "./framework.js";
+
+const lyra = new LyraUI("1.1", "Lyra & Co.");
+lyra.animateOnScroll('.ui-card-people', {
+    threshold: 0.2
+})
+
 document.addEventListener('DOMContentLoaded', () => {
     const video = document.querySelector('.video');
     const firstGlance = document.querySelector('.hero-first-glance');

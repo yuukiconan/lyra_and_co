@@ -85,6 +85,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const texts = document.querySelectorAll('[data-circle-text]');
     texts.forEach(el => {
         el.addEventListener('pointerenter', () => {
+            if (e.pointerType !== 'mouse') {
+                circleText.classList.remove('visible');
+                circle.classList.remove('visible');
+                return;
+            }
             circleText.textContent = el.dataset.circleText;
             circle.classList.add('visible');
             circleText.classList.add('visible');
@@ -110,6 +115,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     window.addEventListener('pointermove', (e) => {
+        if (e.pointerType !== 'mouse') {
+            circleText.classList.remove('visible');
+            circle.classList.remove('visible');
+            return;
+        }
         
         mouseX = e.clientX;
         mouseY = e.clientY;
