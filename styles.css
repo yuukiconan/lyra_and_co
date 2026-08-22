@@ -255,6 +255,10 @@
         appearance: none;
         box-sizing: border-box;
         color-scheme: dark;
+        -webkit-tap-highlight-color: #38312C89;
+    }
+    :root.light-mode * {
+        -webkit-tap-highlight-color: rgba(213, 206, 198, 0.3);
     }
     h1, h2, h3, h4, h5, h6 {
         margin: 0;
@@ -334,7 +338,6 @@
         transition: opacity .5s cubic-bezier(0.075, 0.82, 0.165, 1);
     }
     main {
-        padding-top: 60px;
         z-index: 1;
     }
     h1 {
@@ -2010,9 +2013,6 @@
     section.isImmersive {
         padding-top: 80px;
     }
-    main:has(section.isImmersive, .hero.loaded.willDisappear) {
-        padding-top: 0;
-    }
     section.rm-padding {
         padding: 0;
     }
@@ -2117,17 +2117,8 @@
         opacity: 0;
         transition: opacity .3s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    main:has(.ui-hero-section.loaded.isEntrance) {
-        padding-top: 0;
-    }
     .ui-hero-section.isEntrance h1, .ui-hero-section.isEntrance.loaded .hero-center h1 {
         font-size: var(--font-xl);
-    }
-    main:has(.ui-hero-section, .ui-hero-section.isEntrance, .ui-hero-section.isEntrance.loaded, .ui-hero-section.isEntrance.backtoPos) {
-        padding-top: 0;
-    }
-    main:has(.ui-hero-section.isHalf.loaded, .ui-hero-section.isHalf.backToPos) {
-        padding-top: 60px;
     }
     .ui-hero-section.isEntrance .hero-content, .ui-hero-section.isEntrance .hero-center {
         align-items: center;
