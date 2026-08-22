@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const video = document.querySelector('.video');
     const firstGlance = document.querySelector('.hero-first-glance');
     const isVideoPlayed = document.getElementById('isVideoPlayed');
-    const circle = document.querySelector('.acrylic');
+    const circle = document.querySelector('.circle-cursor');
     const circleText = circle.querySelector('.circle-text');
 
     video.currentTime = 7.9;

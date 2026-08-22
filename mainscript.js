@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const circle = document.createElement('div');
     const circleText = document.createElement('span');
-    circle.className = 'acrylic';
+    circle.className = 'circle-cursor';
     circleText.className = 'circle-text';
     peopleCards.forEach(el => {
         el.setAttribute('data-circle-text', 'Enter');
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const texts = document.querySelectorAll('[data-circle-text]');
     texts.forEach(el => {
-        el.addEventListener('pointerenter', () => {
+        el.addEventListener('pointerenter', (e) => {
             if (e.pointerType !== 'mouse') {
                 circleText.classList.remove('visible');
                 circle.classList.remove('visible');

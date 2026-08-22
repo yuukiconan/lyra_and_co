@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             hamburger.disabled = false;
                         }, {once: true})
                     })
-                }, 500);
+                }, 400);
             });
         }
 
