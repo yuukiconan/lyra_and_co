@@ -32,25 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const staggerElements = hamburgerMenu.querySelectorAll('.stagger-element');
         const root = document.documentElement;
         const lenis = window.lenis;
-
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 1024) {
-                lenis.start();
-                hamburgerMenu.classList.add('hidden');
-                hamburger.classList.remove('active');
-
-                requestAnimationFrame(() => {
-                    const array = Array.from(staggerElements).reverse();
-
-                    array.forEach((btn, index) => {
-                        setTimeout(() => {
-                            btn.classList.remove('visible');
-                        }, index * 0)
-                    });
-
-                });
-            }
-        })
         
         function menuFadeIn() {
             hamburgerMenu.style.animation = `inUpDynamic .7s cubic-bezier(.83,.41,.11,.99)`;
@@ -74,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             hamburger.disabled = false;
                         }, {once: true})
                     })
-                }, 400);
+                }, 500);
             });
         }
 
@@ -104,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 setTimeout(() => {
                     menuFadeOut();
-                }, 420)
+                }, 350)
             });
         }
 

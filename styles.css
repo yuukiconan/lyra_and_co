@@ -802,6 +802,7 @@
     }
 
     .hamburger-menu-footer {
+        overflow: hidden;
         width: 100%;
     }
     
@@ -811,7 +812,7 @@
         align-items: center;
         justify-content: space-between;
         gap: clamp(1rem, 5vw, 10rem);
-        padding: 0px 30px;
+        padding: 10px 30px;
     }
 
     .theme-toggle {
