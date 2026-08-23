@@ -20,7 +20,7 @@ const lenis = new Lenis({
     duration: 1.2,
     smooth: true,
     autoRaf: false,
-    mouseMultiplier: 1,
+    mouseMultiplier: 2,
     smoothTouch: false,
     touchMultiplier: 2,
     infinite: false,

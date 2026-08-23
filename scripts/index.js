@@ -1,40 +1,23 @@
-import LyraUI from "./framework.js";
-
-const lyra = new LyraUI("1.1", "Lyra & Co.");
-lyra.animateOnScroll('.ui-card-people', {
-    threshold: 0.2
-})
-
 document.addEventListener('DOMContentLoaded', () => {
     const video = document.querySelector('.video');
     const firstGlance = document.querySelector('.hero-first-glance');
-    const isVideoPlayed = document.getElementById('isVideoPlayed');
     const circle = document.querySelector('.circle-cursor');
     const circleText = circle.querySelector('.circle-text');
+    let isPlayed = false;
 
     video.currentTime = 7.9;
-
-    firstGlance.addEventListener('mouseenter', () => {
-        if (isVideoPlayed.checked) {
-            circleText.textContent = firstGlance.dataset.circleTextAfter;
-        } else {
+    
+    firstGlance.addEventListener('click', (e) => {
+        e.stopPropagation();
+        
+        if (video.paused) {
+            video.play();
             circleText.textContent = firstGlance.dataset.circleText;
+        } else {
+            video.pause();
+            circleText.textContent = firstGlance.dataset.circleTextAfter;
         }
     });
-
-    firstGlance.addEventListener('click', () => {
-        isVideoPlayed.click();
-
-        isVideoPlayed.addEventListener('change', (e) => {
-            if (e.target.checked) {
-                video.pause();
-                circleText.textContent = firstGlance.dataset.circleTextAfter;
-            } else {
-                video.play();
-                circleText.textContent = firstGlance.dataset.circleText;
-            }
-        });
-    })
 
     firstGlance.addEventListener('mouseleave', () => {
         circleText.classList.remove('visible');

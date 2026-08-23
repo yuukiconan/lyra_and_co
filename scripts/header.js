@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('header').innerHTML = data;
 
         const header = document.querySelector('header');
-        const headerContent = header.querySelector('.header-left h1');
+        const headerContents = header.querySelectorAll('.header-left h1, .navigation-links');
         
         let lastScrollY = window.scrollY;
         const threshold = 30;
@@ -21,7 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (Math.abs(delta) < threshold) return;
             
-            headerContent.classList.toggle('hide', delta > 0);
+            headerContents.forEach(el => {
+                el.classList.toggle('hide', delta > 0);
+            });
             
             lastScrollY = currentScrollY;
         }); 
