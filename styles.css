@@ -1739,6 +1739,12 @@
         background-color: rgba(100, 100, 100, 0.1);  
         overflow: hidden;
         z-index: 1;
+        filter: grayscale(100%);
+        transition: filter .7s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+    
+    .ui-card-people:hover .people-avatar {
+        filter: grayscale(0%);
     }
     
     .ui-card-people .people-avatar img {
