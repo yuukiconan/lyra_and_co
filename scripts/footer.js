@@ -5,15 +5,13 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('footer').innerHTML = data;
     })
     .finally(() => {
-        const headerContents = document.querySelectorAll('.header-left, .header-center, .header-right');
+        const headerContents = document.querySelectorAll('.header-left, .header-right');
         const footer = document.querySelector('footer');
         
         const float = document.querySelector('.float-container');
-        document.addEventListener('DOMContentLoaded', () => {
-            setTimeout(() => {
+        setTimeout(() => {
                 float.classList.remove('hidden');
             }, 10000);
-        });
         
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
