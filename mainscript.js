@@ -64,22 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
     peopleCards.forEach(el => {
         el.setAttribute('data-circle-text', 'Enter');
         el.setAttribute('tabIndex', '0');
-
-        function redirectToPerson() {
-            if (el.dataset.person) {
-                const personId = el.dataset.person;
-                const targetLink = `/about/${personId}.html`;
-
-                window.location.href = targetLink;
-            }
-        }
-
-        el.addEventListener('click', redirectToPerson);
-        el.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') {
-                redirectToPerson();
-            }
-        })
     });
     
     const texts = document.querySelectorAll('[data-circle-text]');

@@ -2537,6 +2537,7 @@
     .ui-card-people .people-avatar {
         width: 100%;
         height: 100%;
+        filter: none;
     }
     .info-box p {
         overflow: hidden;
