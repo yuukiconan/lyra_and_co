@@ -9,8 +9,18 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(data => {
         document.querySelector('header').innerHTML = data;
 
+        
         const header = document.querySelector('header');
+        const menuClock = header.querySelector('#menu-clock');
         const headerContents = header.querySelectorAll('.header-left h1, .navigation-links');
+
+        function updateTime() {
+            const now = new Date();
+            menuClock.textContent = `${now.toLocaleTimeString()} (UTC)`;
+        }
+
+        updateTime();
+        setInterval(updateTime, 1000);
         
         let lastScrollY = window.scrollY;
         const threshold = 30;
