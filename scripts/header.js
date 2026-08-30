@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setInterval(updateTime, 1000);
         
         let lastScrollY = window.scrollY;
-        const threshold = 30;
+        const threshold = 20;
         
         window.addEventListener('scroll', () => {
             const currentScrollY = window.scrollY;
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 setTimeout(() => {
                     menuFadeOut();
-                }, 350)
+                }, 390)
             });
         }
 

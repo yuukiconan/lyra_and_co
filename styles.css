@@ -586,7 +586,7 @@
 
     .header-left {
         position: fixed;
-        top: 22px;
+        top: 25px;
         left: 50px;
         flex-grow: unset;
         flex-shrink: unset;
@@ -613,7 +613,7 @@
 
     .header-center {
         position: fixed;
-        top: 20px;
+        top: 25px;
         left: 50%;
         transform: translateX(-50%);
         z-index: 10;
@@ -624,7 +624,7 @@
 
     .header-right {
         position: fixed;
-        top: 20px;
+        top: 25px;
         right: 50px;
         display: flex;
         align-items: center;
@@ -2293,14 +2293,12 @@
 /* Experimental */
 .ui-card-people {
     opacity: 0;
-    transform: translate(0px, 40px);
     pointer-events: none;
-    transition: opacity .7s cubic-bezier(0.075, 0.82, 0.165, 1), transform .9s cubic-bezier(0.23, 1, 0.320, 1);
+    transition: opacity 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .ui-card-people.visible {
     opacity: 1;
-    transform: translate(0px, 0px);
     pointer-events: auto;
 }
 
@@ -2527,10 +2525,6 @@
         text-align: left;
         max-width: none;
     }
-    .ui-card-people .people-avatar {
-        filter: none;
-        aspect-ratio: 3 / 4;
-    }
     .info-box p {
         overflow: hidden;
         font-size: 16px;
@@ -2551,5 +2545,14 @@
     .ui-entrance-index {
         max-width: none;
         align-self: flex-start;
+    }
+    
+    /* PeopleCard */
+    .ui-card-people {
+        aspect-ratio: 3 / 4;
+    }
+    .ui-card-people .people-avatar {
+        filter: none;
+        aspect-ratio: 3 / 4;
     }
 }
