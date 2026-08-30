@@ -1,8 +1,3 @@
-import LyraUI from "./scripts/framework.js";
-
-const lyra = LyraUI ? new LyraUI("1.1", "Lyra & Co.") : null;
-window.lyra = lyra;
-
 const icon = document.createElement('link');
 icon.rel = 'website icon';
 icon.href = '/assets/images/lyra.png';
@@ -13,34 +8,105 @@ iconCdn.rel = 'stylesheet';
 iconCdn.href = 'https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css';
 document.head.appendChild(iconCdn);
 
+window.__pageRevealEvent = null;
+window.addEventListener('pagereveal', (e) => {
+    window.__pageRevealEvent = e;
+}, { once: true });
+
 history.scrollRestoration = 'manual';
 
-const lenis = new Lenis({
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    duration: 1.2,
-    smooth: true,
-    autoRaf: false,
-    mouseMultiplier: 2,
-    smoothTouch: false,
-    touchMultiplier: 2,
-    infinite: false,
-})
-
-window.lenis = lenis;
-
-gsap.registerPlugin(ScrollTrigger);
-
-lenis.on("scroll", () => {
-    ScrollTrigger.update();
-});
-
-gsap.ticker.add((time) => {
-    lenis.raf(time * 1000);
-});
-
-gsap.ticker.lagSmoothing(0);
-
 document.addEventListener('DOMContentLoaded', () => {
+    const lenis = new Lenis({
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        duration: 1.2,
+        smooth: true,
+        autoRaf: false,
+        mouseMultiplier: 2,
+        smoothTouch: false,
+        touchMultiplier: 2,
+        infinite: false,
+    })
+    
+    window.lenis = lenis;
+    
+    gsap.registerPlugin(ScrollTrigger);
+    
+    lenis.on("scroll", () => {
+        ScrollTrigger.update();
+    });
+    
+    gsap.ticker.add((time) => {
+        lenis.raf(time * 1000);
+    });
+    
+    gsap.ticker.lagSmoothing(0);
+
+    function bindHeroTransition() {
+        const hero = document.querySelector('.ui-hero-section');
+        if (!hero) return;
+        hero.addEventListener('transitionend', () => {
+            ScrollTrigger.refresh();
+        })
+    }
+
+    function triggerHeroLoading() {
+        const hero = document.querySelector('.ui-hero-section');
+        if (!hero) return;
+        if (!hero.classList.contains('loaded') && typeof lenis !== 'undefined') lenis.stop();
+    
+        let timeout = setTimeout(() => {
+            hero.classList.add('loaded')
+            if (typeof lenis !== 'undefined') lenis.start();
+            timeout = null;
+        }, 2000)
+        
+        const isEntrance = document.querySelector('.ui-hero-section.isEntrance');
+        setTimeout(() => {
+            isEntrance.style.height = '0svh';
+        }, 2600);
+    
+        document.addEventListener('hero:loadComplete', () => {
+            clearTimeout(timeout);
+            timeout = null;
+        }, {once: true})
+    }
+
+    function initPageReveal() {
+        let triggered = false;
+
+        const runOnce = async (viewTransition) => {
+            if (triggered) return;
+            triggered = true;
+
+            if (viewTransition) {
+                try {
+                    await viewTransition.finished;
+                } catch(err) {
+                    console.error(err);
+                }
+            }
+
+            triggerHeroLoading();
+        }
+
+        if ('onpagereveal' in window) {
+            if (window.__pageRevealEvent) {
+                // Already fired before this script ran — use the captured event
+                runOnce(window.__pageRevealEvent.viewTransition);
+            } else {
+                // Hasn't fired yet — wait for it properly, no race
+                window.addEventListener('pagereveal', (e) => {
+                    runOnce(e.viewTransition);
+                }, { once: true });
+            }
+        } else {
+            runOnce(null);
+        }
+    }
+
+    bindHeroTransition();
+    initPageReveal();
+
     const hamburgerMenu = document.querySelector('.hamburger-menu');
 
     if (hamburgerMenu) {
@@ -49,7 +115,6 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             lenis.start();
         }
-        
     }
     
     const peopleCards = document.querySelectorAll('.ui-card-people');
@@ -118,44 +183,6 @@ document.addEventListener('DOMContentLoaded', () => {
     root.addEventListener('pointerleave', () => {
         circle.classList.remove('visible');
     })
-
-    const hero = document.querySelector('.ui-hero-section');
-    if (!hero) return;
-    if (!hero.classList.contains('loaded')) lenis.stop();
-
-    let timeout = setTimeout(() => {
-        hero.classList.add('loaded')
-        lenis.start();
-
-        hero.addEventListener('transitionend', () => {
-            ScrollTrigger.refresh();
-        })
-    }, 2000)
-    
-    const isEntrance = document.querySelector('.ui-hero-section.isEntrance');
-    if (isEntrance) {
-        setTimeout(() => {
-            isEntrance.style.height = '0svh';
-        }, 2600);
-    }
-
-    document.addEventListener('hero:loadComplete', () => {
-        clearTimeout(timeout);
-        timeout = null;
-    })
-    
-    window.addEventListener('scroll', () => {
-        if (window.scrollY <= 0) {
-            setTimeout(() => {
-                hero.classList.remove('loaded');
-                hero.classList.add('backToPos');
-            }, 200);
-        }
-        if (hero.classList.contains('backToPos') && window.scrollY > 10) {
-            hero.classList.remove('backToPos');
-            hero.classList.add('loaded');
-        }
-    }, {passive: true});
 
     document.fonts.ready.then(() => {
         const split = new SplitText(".hero-content h1", { type: "words" });
