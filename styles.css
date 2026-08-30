@@ -77,14 +77,14 @@
         --text-md:  1rem;
         --text-lg:  clamp(1rem, -3rem + 16vw, 1.3rem);
         --text-xl:  1.5rem;
-        --text-2xl: clamp(1.25rem, 1.15rem + 0.5vw, 2.15rem);
-        --text-3xl: clamp(1.5rem, -3rem + 16vw, 3rem);
-        --text-4xl: clamp(1.75rem, -3rem + 16vw, 4.25rem);
+        --text-2xl: clamp(1.3rem, 1.15rem + 0.5vw, 2.15rem);
+        --text-3xl: clamp(1.6rem, -3rem + 16vw, 3rem);
+        --text-4xl: clamp(1.85rem, -3rem + 16vw, 4.25rem);
         --text-5xl: clamp(2rem, 6vw, 5rem);
         --text-6xl: clamp(3.5rem, 3rem + 6vw, 8.5rem);
         --text-7xl: clamp(4rem, -3rem + 16vw, 7rem);
         --text-8xl: clamp(4.5rem, -3rem + 16vw, 10rem);
-        --text-9xl: clamp(5rem, -3rem + 16vw, 12rem);
+        --text-9xl: clamp(5.21rem, -3rem + 16vw, 12rem);
 
 		--ui-tracking-tight: -0.03em;
 		--ui-tracking-wide:  0.14em;
@@ -2440,9 +2440,6 @@
     .header-left { left: 22px; }
     .header-right { right: 22px; }
 
-    .hero-center h1 {
-        font-size: var(--text-xl);
-    }
     .ui-hero-section .loading {
         position: absolute;
         inset: auto 0 20px 0;

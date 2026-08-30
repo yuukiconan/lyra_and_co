@@ -14,7 +14,7 @@
 }
 
 .-ui-about-title {
-    font-size: var(--text-2xl);
+    font-size: var(--text-3xl);
     font-weight: 400;
     line-height: 1.1;
     margin-bottom: var(--spacing-md);
@@ -361,23 +361,5 @@
 
     .-ui-about-closing-cta {
         transition: none;
-    }
-}
-
-/* Dark mode support (optional) */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --color-bg: #0f0f0f;
-        --color-text: #f5f5f5;
-        --color-text-secondary: #a0a0a0;
-        --color-border: #2a2a2a;
-    }
-
-    .-ui-about-goal {
-        background-color: rgba(255, 255, 255, 0.05);
-    }
-
-    .-ui-about-story-quote {
-        background-color: rgba(255, 255, 255, 0.05);
     }
 }
