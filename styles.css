@@ -7,7 +7,7 @@
 
 ::view-transition-new(root) {
     animation: 800ms cubic-bezier(0.075, 0.82, 0.165, 1) both fadeIn;
-    animation-delay: 2s;
+    animation-delay: 1.8s;
 }
 
 @font-face {
@@ -76,15 +76,15 @@
         --text-sm:  0.875rem;
         --text-md:  1rem;
         --text-lg:  clamp(1rem, -3rem + 16vw, 1.3rem);
-        --text-xl:  1.5rem;
-        --text-2xl: clamp(1.3rem, 1.15rem + 0.5vw, 2.15rem);
-        --text-3xl: clamp(1.6rem, -3rem + 16vw, 3rem);
-        --text-4xl: clamp(1.85rem, -3rem + 16vw, 4.25rem);
-        --text-5xl: clamp(2rem, 6vw, 5rem);
-        --text-6xl: clamp(3.5rem, 3rem + 6vw, 8.5rem);
-        --text-7xl: clamp(4rem, -3rem + 16vw, 7rem);
-        --text-8xl: clamp(4.5rem, -3rem + 16vw, 10rem);
-        --text-9xl: clamp(5.21rem, -3rem + 16vw, 12rem);
+        --text-xl:  1.8rem;
+        --text-2xl: clamp(1.8rem, 1.15rem + 0.5vw, 2.15rem);
+        --text-3xl: clamp(2.5em, -3rem + 16vw, 3rem);
+        --text-4xl: clamp(3rem, -3rem + 16vw, 4.25rem);
+        --text-5xl: clamp(3.5rem, 6vw, 5rem);
+        --text-6xl: clamp(4rem, 3rem + 6vw, 6rem);
+        --text-7xl: clamp(4.5rem, -3rem + 16vw, 7rem);
+        --text-8xl: clamp(6rem, -3rem + 16vw, 10rem);
+        --text-9xl: clamp(7rem, -3rem + 16vw, 12rem);
 
 		--ui-tracking-tight: -0.03em;
 		--ui-tracking-wide:  0.14em;
@@ -277,8 +277,9 @@
         font-family: var(--sans-serif-dm-sans);
     }
     body, h1, h2, h3, h4, h5, h6, p, span {
-        -webkit-font-smoothing: subpixel-antialiased !important;
+        -webkit-font-smoothing: antialiased !important;
         -moz-osx-font-smoothing: grayscale !important;
+        text-rendering: optimizeLegibility;
         color: var(--color-text);
     }
     p, span, button, input, label, a, li {
@@ -350,6 +351,12 @@
     }
     main {
         z-index: 1;
+    }
+    main:has(.ui-hero-section.loaded) {
+        padding-top: 60px;
+    }
+    main:has(.hero-first-glance) {
+        padding-top: 0;
     }
     h1 {
         font-size: 40px;
@@ -477,7 +484,7 @@
     .hamburger .line {
         background-color: var(--color-text);
         width: 50px;
-        height: 2px;
+        height: 1.5px;
         transform-origin: center;
         transition: transform 350ms cubic-bezier(0.4, 0, 0.22, 1);
     }
@@ -597,7 +604,7 @@
 
     .header-left {
         position: fixed;
-        top: 25px;
+        top: 30px;
         left: 50px;
         flex-grow: unset;
         flex-shrink: unset;
@@ -611,6 +618,7 @@
         font-family: var(--sans-serif-dm-sans);
         color: #fff5e2;
         font-weight: 300;
+        font-size: 32px;
         transition: opacity .25s cubic-bezier(0.4, 0, 0.2, 1), transform .5s cubic-bezier(0.4, 0, 0.2, 1), visibility .5s cubic-bezier(0.4, 0, 0.2, 1);
     }
     
@@ -895,7 +903,7 @@
         justify-content: center;
         width: 100vw;
         height: 100svh;
-        transition: height .9s cubic-bezier(0.6, 0, 0, 1), opacity .6s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: transform 1s cubic-bezier(0.5, 0.5, 0, 1), opacity .6s cubic-bezier(0.19, 1, 0.22, 1), height .8s cubic-bezier(1, 0, 0, 1);
     }
     .ui-hero-section .loading {
         font-family: var(--monospace);
@@ -955,7 +963,7 @@
         color: #fcf6f1;
         max-width: 60%;
         mix-blend-mode: difference;
-        font-size: var(--text-2xl);
+        font-size: var(--text-7xl);
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 2px;
@@ -989,7 +997,7 @@
         max-width: 75%;
     }
     .hero-first-glance .parallax-heading-small {
-        font-size: var(--text-md);
+        font-size: var(--text-lg);
         font-weight: 400;
         mix-blend-mode: difference;
         text-transform: uppercase;
@@ -1003,7 +1011,7 @@
         text-transform: uppercase;
         color: #fcf6f1;
         letter-spacing: 5px;
-        font-size: var(--text-2xl);
+        font-size: var(--text-7xl);
     }
 
     .hero-first-glance .hero-footer {
@@ -1787,6 +1795,7 @@
         font-size: var(--text-3xl);
         font-family: var(--serif);
         font-style: italic;
+        letter-spacing: 0.9;
         font-weight: 500;
     }
     
@@ -2104,14 +2113,14 @@
         padding-bottom: 20px;
     }
     .ui-hero-section.loaded {
-        height: 100svh;
+        transform: translateY(-100%);
     }
     .ui-hero-section.loaded.isHalf {
         height: 35svh;
     }
     .ui-hero-section.loaded.willDisappear, .ui-hero-section.backToPos.willDisappear {
         opacity: 0;
-        height: 0svh;
+        height: 0;
     }
     .ui-hero-section.isHalf .hero-content, .ui-hero-section.backToPos.isFixed .hero-content {
         background-color: transparent;
@@ -2137,10 +2146,17 @@
     .ui-hero-section.backToPos .hero-center h1 {
         font-size: var(--text-xl);
     }
-    .ui-hero-section.loaded.isEntrance {
-        height: 100svh;
+    .ui-hero-section.isEntrance.loaded {
+        opacity: 0;
+        height: 0vh;
+        transition: opacity .3s cubic-bezier(0.4, 0, 0.2, 1), height .8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .hero-first-glance.isEntrance {
         opacity: 0;
         transition: opacity .3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .hero-first-glance.isEntrance.loaded {
+        opacity: 1;
     }
     .ui-hero-section.isEntrance h1, .ui-hero-section.isEntrance.loaded .hero-center h1 {
         font-size: var(--text-xl);
@@ -2471,7 +2487,7 @@
         align-items: center;
     }
     .hero-center h1 {
-        text-align: center;
+        text-align: left;
     }
     .hero-first-glance h1 {
         max-width: 100%;

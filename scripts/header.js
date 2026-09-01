@@ -11,17 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         
         const header = document.querySelector('header');
-        const menuClock = header.querySelector('#menu-clock');
         const headerContents = header.querySelectorAll('.header-left h1, .navigation-links');
 
-        function updateTime() {
-            const now = new Date();
-            menuClock.textContent = `${now.toLocaleTimeString()} (UTC)`;
-        }
-
-        updateTime();
-        setInterval(updateTime, 1000);
-        
         let lastScrollY = window.scrollY;
         const threshold = 20;
         
@@ -46,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const lenis = window.lenis;
         
         function menuFadeIn() {
-            hamburgerMenu.style.animation = `inUpDynamic .7s cubic-bezier(.83,.41,.11,.99)`;
+            hamburgerMenu.style.animation = `inUpDynamic .9s cubic-bezier(1, 0.3, 0.3, 1)`;
         }
         
         function openMenu() {
@@ -61,18 +52,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     staggerElements.forEach((btn, index) => {
                         setTimeout(() => {
                             btn.classList.add('visible');
-                        }, index * 40)
+                        }, index * 50)
                         
                         btn.addEventListener('transitionend', () => {
                             hamburger.disabled = false;
                         }, {once: true})
                     })
-                }, 500);
+                }, 600);
             });
         }
 
         function menuFadeOut() {
-            hamburgerMenu.style.animation = 'outUpDynamic .8s cubic-bezier(.83,.41,.11,.99)';
+            hamburgerMenu.style.animation = 'outUpDynamic .8s cubic-bezier(1, 0, 0, 1)';
 
             hamburgerMenu.addEventListener('animationend', () => {
                 if (hamburgerMenu.style.animation.includes('outUpDynamic')) {

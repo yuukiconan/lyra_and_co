@@ -58,12 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
             hero.classList.add('loaded')
             if (typeof lenis !== 'undefined') lenis.start();
             timeout = null;
-        }, 2000)
-        
-        const isEntrance = document.querySelector('.ui-hero-section.isEntrance');
-        setTimeout(() => {
-            isEntrance.style.height = '0svh';
-        }, 2600);
+        }, 1800)
     
         document.addEventListener('hero:loadComplete', () => {
             clearTimeout(timeout);
