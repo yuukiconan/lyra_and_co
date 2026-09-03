@@ -59,7 +59,7 @@
         --color-text-gray: rgba(199, 199, 199, 0.8);
         --color-backdrop: rgb(31 27 24 / 72%);
         --color-surface: #1f1b18;
-        --color-primary: #E7DDD3;
+        --color-primary: #885A44;
         --color-border: #38312C;
         --color-border-gray: rgba(46, 46, 46, 0.5);
     
@@ -116,7 +116,7 @@
         --color-text: #292522;
         --color-text-secondary: #5F5953;
         --color-backdrop: rgb(248 245 242 / 68%);
-        --color-surface: #f5e6d9;
+        --color-surface: #F7E5D5;
         --color-border: rgb(213, 206, 198);
         --color-border-gray: rgba(150, 150, 150, 0.31);
         --color-text-gray: #85807A;
@@ -143,11 +143,11 @@
 
     @keyframes inUpDynamic {
         0% {
-            transform: translateY(-100%);
+            transform: scaleY(0%);
         }
 
         100% {
-            transform: translateY(0px);
+            transform: scaleY(100%);
         }
     }
 
@@ -169,11 +169,11 @@
 
     @keyframes outUpDynamic {
         0% {
-            transform: translateY(0px);
+            transform: scaleY(100%);
         }
 
         100% {
-            transform: translateY(-100%);
+            transform: scaleY(0);
         }
     }
 
@@ -274,7 +274,7 @@
     h1, h2, h3, h4, h5, h6 {
         margin: 0;
         font-weight: 500;
-        font-family: var(--sans-serif-dm-sans);
+        font-family: var(--sans-serif-manrope);
     }
     body, h1, h2, h3, h4, h5, h6, p, span {
         -webkit-font-smoothing: antialiased !important;
@@ -353,7 +353,7 @@
         z-index: 1;
     }
     main:has(.ui-hero-section.loaded) {
-        padding-top: 60px;
+        padding-top: 40px;
     }
     main:has(.hero-first-glance) {
         padding-top: 0;
@@ -604,7 +604,7 @@
 
     .header-left {
         position: fixed;
-        top: 30px;
+        top: 25px;
         left: 50px;
         flex-grow: unset;
         flex-shrink: unset;
@@ -613,9 +613,16 @@
         mix-blend-mode: difference;
         justify-content: flex-start;
     }
+    .header-left img {
+        width: 70px;
+        height: 40px;
+        filter: invert(1);
+        object-fit: cover;
+        transition: opacity .25s cubic-bezier(0.4, 0, 0.2, 1), transform .5s cubic-bezier(0.4, 0, 0.2, 1), visibility .5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
     .header-left h1 {
         white-space: nowrap;
-        font-family: var(--sans-serif-dm-sans);
+        font-family: var(--sans-serif-manrope);
         color: #fff5e2;
         font-weight: 300;
         font-size: 32px;
@@ -624,11 +631,6 @@
     
     .header-left h1 b {
         font-weight: 600;
-    }
-
-    header:has(.hamburger-menu:not(.hidden)) .header-left h1 {
-        opacity: 0;
-        transform: translateY(10px);
     }
 
     .header-center {
@@ -749,6 +751,7 @@
         justify-content: space-between;
         align-items: center;
         flex-basis: 100%;
+        transform-origin: top;
         
     }
 
@@ -820,7 +823,7 @@
     .stagger-element {
         overflow: hidden;
         opacity: 0;
-        transform: translateY(60px);
+        transform: translateY(-60px);
         transition: color .5s, opacity .25s cubic-bezier(0.22, 0, 0.4, 1), transform .7s cubic-bezier(.1,0,.44,1)
     }
     
@@ -1881,12 +1884,13 @@
     /* Footer */
     .float-container {
         position: fixed;
-        bottom: 1rem;
-        left: 1rem;
+        bottom: 0.8rem;
+        left: 0.8rem;
         z-index: 9;
     }
     .float-container button {
         border-radius: 50px;
+        background-color: var(--color-primary);
         padding: 16px;
     }
     footer {
@@ -1998,10 +2002,11 @@
     .large { font-size: var(--text-lg); }
     .extra-large { font-size: var(--text-xl); }
     .double-extra-large { font-size: var(--text-2xl) }
-    .sans-serif { font-family: var(--sans-serif-dm-sans); }
+    .sans-serif { font-family: var(--sans-serif-manrope); }
     .serif { font-family: var(--serif); letter-spacing: -2px; font-weight: 600; }
     .italic { font-style: italic; }
     .underline { border-bottom: 1px solid var(--color-border); }
+    .overline { border-top: 1px solid var(--color-border); }
 
     header.scrolled :is(.header-left, .header-center *, .header-right *) {
         color: var(--color-text);
@@ -2029,7 +2034,7 @@
         visibility: hidden;
     }
 
-    .header-left h1.hide, .navigation-links.hide {
+    .header-left img.hide, .navigation-links.hide {
         opacity: 0;
         transform: translateY(20px);
         visibility: hidden;
@@ -2222,9 +2227,12 @@
 }
 .section-title.small {
     margin-top: 20px;
-    padding: 10px 0 10px 0;
+    padding: 10px 0 2px 0;
     font-weight: 500;
     font-size: var(--text-3xl);
+}
+.section-title.overline {
+    padding-block-start: 20px;
 }
 
 /* UI People Box */
@@ -2436,6 +2444,30 @@
 	}
 
 @media (max-width: 768px) {
+    @keyframes inUpDynamic {
+        0% {
+            transform: translateX(100%);
+        }
+        
+        100% {
+            transform: translateX(0%);
+        }
+    }
+    
+    
+    @keyframes outUpDynamic {
+        0% {
+            transform: translateX(0%);
+        }
+        
+        100% {
+            transform: translateX(100%);
+        }
+    }
+    
+    main {
+        padding-top: 30px;
+    }
     .ui-hero-section .hero-content {
         justify-content: flex-end;
         align-items: flex-start;
@@ -2453,9 +2485,24 @@
         margin-block-start: 0;
         margin-top: 0;
     }
-    .header-left { left: 22px; }
-    .header-right { right: 22px; }
-
+    .header-left { left: 22px; top: 14px; }
+    .header-left h1 {
+        font-size: 28px;
+    }
+    .header-right { right: 22px; top: 14px; }
+    .hamburger .line {
+        width: 32px;
+    }
+    .hamburger.active .line-1 {
+        transform: translateY(3.2px) rotate(45deg);
+    }
+    .hamburger.active .line-2 {
+        transform: translateY(-3.2px) rotate(-45deg);
+    }
+    .hamburger {
+        gap: 6px
+    }
+    .hamburger.active .line-1
     .ui-hero-section .loading {
         position: absolute;
         inset: auto 0 20px 0;
@@ -2468,8 +2515,13 @@
         padding: 20px 0px;
     }
     .hamburger-menu-content {
-        justify-content: flex-end;
+        justify-content: flex-start;
+        padding-top: 46px;
     }
+    .menuButton div {
+        justify-content: flex-start;
+    }
+    
     .menuButton .num { font-size: 18px; }
     .menuButton.isHidden {
         display: flex;
@@ -2582,6 +2634,6 @@
     }
     .ui-card-people .people-avatar {
         filter: none;
-        aspect-ratio: 3 / 4;
+        aspect-ratio: 9 / 16;
     }
 }

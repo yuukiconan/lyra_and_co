@@ -9,9 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(data => {
         document.querySelector('header').innerHTML = data;
 
-        
         const header = document.querySelector('header');
-        const headerContents = header.querySelectorAll('.header-left h1, .navigation-links');
+        const headerContents = header.querySelectorAll('.header-left img, .navigation-links');
 
         let lastScrollY = window.scrollY;
         const threshold = 20;
@@ -37,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const lenis = window.lenis;
         
         function menuFadeIn() {
-            hamburgerMenu.style.animation = `inUpDynamic .9s cubic-bezier(1, 0.3, 0.3, 1)`;
+            hamburgerMenu.style.animation = `inUpDynamic .9s cubic-bezier(0.4, 0, 0.2, 1)`;
         }
         
         function openMenu() {
@@ -63,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         function menuFadeOut() {
-            hamburgerMenu.style.animation = 'outUpDynamic .8s cubic-bezier(1, 0, 0, 1)';
+            hamburgerMenu.style.animation = 'outUpDynamic .8s cubic-bezier(0.4, 0, 0.2, 1)';
 
             hamburgerMenu.addEventListener('animationend', () => {
                 if (hamburgerMenu.style.animation.includes('outUpDynamic')) {
