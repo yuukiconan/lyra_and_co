@@ -885,9 +885,8 @@
     }
 
     .hero-editorial-intro {
-        margin-block-start: 5em;
         width: 100%;
-        padding: clamp(20px, 7vw, 90px) clamp(20px, 6vw, 72px) clamp(60px, 8vw, 96px);
+        padding: clamp(20px, 7vw, 90px) clamp(0px, 3vw, 72px) clamp(60px, 8vw, 96px);
     }
 
     /* Headline */
@@ -901,7 +900,7 @@
 
     .heading-row {
         display: block;
-        font-size: clamp(2.6rem, 10vw, 12rem);
+        font-size: clamp(2.3rem, 10vw, 12rem);
         text-transform: uppercase;
     }
 
@@ -924,7 +923,6 @@
     
     /* Full-bleed media */
     .hero-editorial-media {
-        padding-inline: 40px;
         margin: 0 0 clamp(24px, 4vw, 40px);
     }
 
@@ -946,7 +944,7 @@
 
     .hero-editorial-meta time {
         font-family: var(--monospace);
-        font-size: 2.35rem;
+        font-size: 1.86rem;
         letter-spacing: .04em;
         text-transform: uppercase;
     }
@@ -977,7 +975,7 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 16px;
-        max-width: 68rem;
+        max-width: 65rem;
         margin: 0 auto clamp(24px, 4vw, 40px);
     }
 
@@ -988,7 +986,7 @@
     .hero-editorial-duo img {
         display: block;
         width: 100%;
-        aspect-ratio: 4 / 5;
+        aspect-ratio: 3 / 4;
         object-fit: cover;
     }
 
@@ -1018,13 +1016,11 @@
 
     .hero-editorial-credits dt {
         text-transform: uppercase;
-        color: #8a8378;
         flex-shrink: 0;
     }
 
     .hero-editorial-credits dd {
         margin: 0;
-        color: #2c2822;
     }
 
     .hero-editorial-caption-text {
@@ -1032,24 +1028,10 @@
         font-family: var(--serif);
         font-size: clamp(.78rem, .95vw, .88rem);
         line-height: 1.7;
-        color: #2c2822;
     }
 
     /* ===== Responsive ===== */
-
     @media (max-width: 900px) {
-        .hero-nav-pills {
-            display: none;
-        }
-
-        .hero-nav-burger {
-            display: flex;
-        }
-
-        .heading-row {
-            font-size: clamp(2.2rem, 10vw, 3.2rem);
-        }
-
         .hero-editorial-body,
         .hero-editorial-caption-row {
             grid-template-columns: 1fr;
@@ -1062,22 +1044,11 @@
 
         .hero-editorial-duo {
             grid-template-columns: 1fr;
+            max-width: 100%;
         }
     }
 
     @media (max-width: 560px) {
-        .hero-editorial-nav {
-            position: relative;
-        }
-
-        .hero-nav-toggle:checked ~ .hero-nav-icons .hero-nav-burger span:first-child {
-            transform: translateY(2.5px) rotate(45deg);
-        }
-
-        .hero-nav-toggle:checked ~ .hero-nav-icons .hero-nav-burger span:last-child {
-            transform: translateY(-2.5px) rotate(-45deg);
-        }
-
         .heading-row--mixed {
             flex-wrap: wrap;
             gap: .18em;
@@ -1425,11 +1396,11 @@
     }
     .ui-expressive-section .section-grid-panel {
         break-inside: avoid;
+        width: 100%;
     }
     .ui-expressive-section .section-grid-panel p {
         font-size: var(--text-3xl);
         width: 100%;
-        line-height: var(--spacing-md);
         font-family: var(--sans-serif-dm-sans);
     }
     .section-grid-panel.small p {
@@ -1520,15 +1491,15 @@
         position: relative;
         overflow-x: hidden;
         width: 100%;
-        padding: 20px 60px;
+        padding: 20px 40px;
     }
     .marquee.reversed .marquee-track {
-        animation: marquee 15s linear infinite reverse;
+        animation: marquee 10s linear infinite reverse;
     }
     .marquee-track {
         display: flex;
-        gap: 5vw;
-        animation: marquee 15s linear infinite;
+        gap: clamp(3rem, 10vw, 7rem);
+        animation: marquee 10s linear infinite;
     }
     
     .marquee::before {
@@ -1556,7 +1527,7 @@
     }
     
     .marquee-text {
-        font-size: var(--text-4xl);
+        font-size: var(--text-3xl);
         white-space: nowrap;
         font-weight: 600;
         text-transform: uppercase;
@@ -1817,30 +1788,6 @@
     .people-actions .btn-outline:hover {
         background-color: var(--color-text);
         color: var(--color-bg);
-    }
-    
-    /* Entrance UI */
-    .ui-entrance-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 20px 0;
-    }
-    
-    .ui-entrance-index {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        align-self: flex-end;
-        max-width: 90%;
-    }
-    
-    .ui-entrance-index h1 {
-        overflow: hidden;
-        padding: 10px 0;
-    }
-    .ui-entrance-index p {
-        font-size: 20px;
     }
     
     /* GalleryView UI */
@@ -2591,9 +2538,15 @@
     .actions-left {
         align-items: start;
     }
-    .ui-entrance-index {
-        max-width: none;
+    .ui-entrance-intro__content{
+        flex-direction: column;
         align-self: flex-start;
+    }
+    .section-track {
+        display: none;
+    }
+    .section-grid-panel p {
+        font-size: var(--text-lg);
     }
     
     /* PeopleCard */

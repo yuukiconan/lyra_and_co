@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
         const hamburger = document.querySelector('.hamburger');
+        const hamburgerLabel = hamburger.querySelector('.hamburger-text');
         const hamburgerMenu = document.querySelector('.hamburger-menu');
         const staggerElements = hamburgerMenu.querySelectorAll('.stagger-element');
         const root = document.documentElement;
@@ -91,11 +92,15 @@ document.addEventListener('DOMContentLoaded', () => {
         function toggleMenuVisibility() {
             if (hamburgerMenu.classList.contains('hidden')) {
                 root.classList.add('noscroll');
+                hamburgerLabel.textContent = "Close";
+                hamburgerLabel.ariaLabel = "Close";
                 lenis.stop();
                 openMenu();
             } else {
                 lenis.start();
                 root.classList.remove('noscroll');
+                hamburgerLabel.textContent = "Menu";
+                hamburgerLabel.ariaLabel = "Menu";
                 closeMenu();
             }
         }
