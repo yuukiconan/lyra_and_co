@@ -99,9 +99,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    bindHeroTransition();
-    initPageReveal();
-
     const hamburgerMenu = document.querySelector('.hamburger-menu');
 
     if (hamburgerMenu) {

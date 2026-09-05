@@ -1,9 +1,7 @@
-------- MAIN CONTAINER -------
 .-ui-about {
     position: relative;
 }
 
-/* ------- ABOUT INTRO SECTION ------- */
 .-ui-about-intro {
     padding: var(--spacing-xxl) var(--spacing-lg);
     border-bottom: 1px solid var(--color-border);
@@ -40,7 +38,6 @@
     color: var(--color-text);
 }
 
-/* ------- HISTORY SECTION ------- */
 .-ui-about-history {
     padding: var(--spacing-xxl) var(--spacing-lg);
     border-bottom: 1px solid var(--color-border);
@@ -105,7 +102,6 @@
     }
 }
 
-/* ------- STORY SECTION ------- */
 .-ui-about-story {
     padding: var(--spacing-xxl) var(--spacing-lg);
     border-bottom: 1px solid var(--color-border);
@@ -149,7 +145,6 @@
     margin: 0;
 }
 
-/* ------- GOALS SECTION ------- */
 .-ui-about-goals {
     padding: var(--spacing-xxl) var(--spacing-lg);
     border-bottom: 1px solid var(--color-border);
@@ -243,7 +238,6 @@
     flex-grow: 1;
 }
 
-/* ------- CLOSING SECTION ------- */
 .-ui-about-closing {
     padding: var(--spacing-xxl) var(--spacing-lg);
 }
