@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const lenis = window.lenis;
         
         function menuFadeIn() {
-            hamburgerMenu.style.animation = `inUpDynamic .9s cubic-bezier(0.4, 0, 0.2, 1)`;
+            hamburgerMenu.style.animation = `inUpDynamic .9s cubic-bezier(0.8, 0, 0.2, 1)`;
         }
         
         function openMenu() {
@@ -55,12 +55,12 @@ document.addEventListener('DOMContentLoaded', () => {
                             hamburger.disabled = false;
                         }, {once: true})
                     })
-                }, 600);
+                }, 700);
             });
         }
 
         function menuFadeOut() {
-            hamburgerMenu.style.animation = 'outUpDynamic .8s cubic-bezier(0.4, 0, 0.2, 1)';
+            hamburgerMenu.style.animation = 'outUpDynamic .8s cubic-bezier(0.8, 0, 0.2, 1)';
 
             hamburgerMenu.addEventListener('animationend', () => {
                 if (hamburgerMenu.style.animation.includes('outUpDynamic')) {
@@ -80,12 +80,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 array.forEach((btn, index) => {
                     setTimeout(() => {
                         btn.classList.remove('visible');
-                    }, index * 0)
+                    }, index * 50)
                 });
 
                 setTimeout(() => {
                     menuFadeOut();
-                }, 390)
+                }, 420)
             });
         }
 

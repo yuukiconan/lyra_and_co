@@ -5,6 +5,13 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('footer').innerHTML = data;
     })
     .finally(() => {
+        const toggleContrastButton = document.getElementById('contrast-toggle');
+        if (toggleContrastButton) {
+            toggleContrastButton.addEventListener('change', () => {
+                document.querySelector('main').classList.toggle('high-contrast');
+            });
+        }
+        
         const headerContents = document.querySelectorAll('.header-left, .header-right');
         const footer = document.querySelector('footer');
         
@@ -23,4 +30,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
         observer.observe(footer);
     });
+
 })

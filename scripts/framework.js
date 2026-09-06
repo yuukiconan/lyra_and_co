@@ -12,37 +12,29 @@ export default class LyraUI {
             animationClass = 'visible',
             stagger = 0,
             threshold = 0.4,
+            rootMargin = '0px',
             once = true
-            
         } = options;
         
-        const elements = document.querySelectorAll(selector);
+        const elements = target ? document.querySelectorAll(`${selector} ${target}`) : document.querySelectorAll(selector);
         const observer = new IntersectionObserver((entries, obs) => { 
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) return;
-                
+            const visibleEntries = entries.filter(e => e.isIntersecting);
+
+            visibleEntries.forEach((entry, i) => {
                 const el = entry.target;
                 
-                if (target) {
-                    const items = el.querySelectorAll(target);
-                    
-                    items.forEach((item, i) => {
-                        if (stagger) {
-                            item.style.transitionDelay = `${i * stagger}s`;
-                        }
-                        item.classList.add(animationClass);
-                        
-                    });
-                } else {
-                    el.classList.add(animationClass);
+                if (stagger) {
+                    el.style.transitionDelay = `${i * stagger}s`;
                 }
+                
+                el.classList.add(animationClass);
                 
                 if (once) {
                     obs.unobserve(el);
                 }
             });
-        }, {threshold, rootMargin: '0px 0px -50% 0px'});
-        
+        }, {threshold, rootMargin});
+
         elements.forEach(el => observer.observe(el));
     }
 }

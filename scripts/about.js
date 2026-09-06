@@ -1,9 +1,11 @@
 import LyraUI from "./framework.js";
 
 const lyra = new LyraUI("1.1", "Lyra & Co.");
-lyra.animateOnScroll('.ui-card-people', {
-    threshold: 0.2,
-    stagger: 0.5
+lyra.animateOnScroll('.people-grid', {
+    target: '.ui-card-people',
+    stagger: 0.2,
+    threshold: 0.5,
+    rootMargin: '0px 0px -100px 0px'
 })
 
 // const container = document.querySelector('.horizontal-gallery-wrapper');
