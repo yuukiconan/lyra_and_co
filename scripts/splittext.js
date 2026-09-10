@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 20);
     
     document.fonts.ready.then(() => {
-        const split = new SplitText(".info-box p", { type: "lines" });
+        const split = new SplitText(".ui-short-brief p", { type: "lines" });
         
         gsap.from(split.lines, {
             duration: 0.5,
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
             stagger: 0.1,
             ease: "power2.out",
             scrollTrigger: {
-                trigger: ".info-box",
+                trigger: ".ui-short-brief",
                 start: "top 150%",
                 end: "bottom 130%",
                 scrub: false,
