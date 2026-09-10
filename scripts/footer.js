@@ -17,8 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const float = document.querySelector('.float-container');
         setTimeout(() => {
-                float.classList.remove('hidden');
-            }, 10000);
+            float.classList.remove('hidden');
+        }, 10000);
         
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {

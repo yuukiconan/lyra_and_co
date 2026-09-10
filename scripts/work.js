@@ -36,5 +36,5 @@ document.fonts.ready.then(() => {
                 end: 'top 34%',
             }
         });
-    }, 2000)
+    }, 1800)
 });
