@@ -2568,11 +2568,6 @@ details[open] > summary::after {
     .hamburger {
         gap: 6px
     }
-    .hamburger.active .line-1 {
-        position: absolute;
-        inset: auto 0 20px 0;
-        justify-content: center;
-    }
     section, .hamburger-menu {
         padding-inline: 20px;
     }
