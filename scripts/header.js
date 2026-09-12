@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const lenis = window.lenis;
         
         function menuFadeIn() {
-            hamburgerMenu.style.animation = `inUpDynamic .9s cubic-bezier(0.8, 0, 0.2, 1)`;
+            hamburgerMenu.style.animation = `inUpDynamic 1.2s cubic-bezier(0.8, 0, 0.2, 1)`;
         }
         
         function openMenu() {
@@ -49,18 +49,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     staggerElements.forEach((btn, index) => {
                         setTimeout(() => {
                             btn.classList.add('visible');
-                        }, index * 50)
+                        }, index * 70)
                         
                         btn.addEventListener('transitionend', () => {
                             hamburger.disabled = false;
                         }, {once: true})
                     })
-                }, 700);
+                }, 500);
             });
         }
 
         function menuFadeOut() {
-            hamburgerMenu.style.animation = 'outUpDynamic .8s cubic-bezier(0.8, 0, 0.2, 1)';
+            hamburgerMenu.style.animation = 'outUpDynamic 1.2s cubic-bezier(1, 0, 0.2, 1)';
 
             hamburgerMenu.addEventListener('animationend', () => {
                 if (hamburgerMenu.style.animation.includes('outUpDynamic')) {
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 setTimeout(() => {
                     menuFadeOut();
-                }, 420)
+                }, 300)
             });
         }
 

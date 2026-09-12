@@ -1,0 +1,21 @@
+[
+    {
+        "id": "sharon",
+        "name": "Sharon Bethania Djwa",
+        "role": "Chief Executive Officer",
+        "avatar_url": "/assets/images/sharon_djwa/sharon-nobg.webp"
+    },
+    {
+        "id": "noleen",
+        "name": "Jessica Noleen Alka",
+        "role": "Founder of Lyra & Co.",
+        "avatar_url": "/assets/images/jessica_noleen/jessica-nobg.webp"
+    },
+    {
+        "id": "carin",
+        "name": "Carin Miracle Hartono",
+        "role": "Executive Chairman",
+        "avatar_url": "/assets/images/carin_miracle/carin-nobg.webp"
+    }
+
+]

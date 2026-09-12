@@ -41,31 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     gsap.ticker.lagSmoothing(0);
 
-    function bindHeroTransition() {
-        const hero = document.querySelector('.ui-hero-section');
-        if (!hero) return;
-        hero.addEventListener('transitionend', () => {
-            ScrollTrigger.refresh();
-        })
-    }
-
-    function triggerHeroLoading() {
-        const hero = document.querySelector('.ui-hero-section');
-        if (!hero) return;
-        if (!hero.classList.contains('loaded') && typeof lenis !== 'undefined') lenis.stop();
-    
-        let timeout = setTimeout(() => {
-            hero.classList.add('loaded')
-            if (typeof lenis !== 'undefined') lenis.start();
-            timeout = null;
-        }, 1800)
-    
-        document.addEventListener('hero:loadComplete', () => {
-            clearTimeout(timeout);
-            timeout = null;
-        }, {once: true})
-    }
-
     function initPageReveal() {
         let triggered = false;
 
@@ -175,23 +150,6 @@ document.addEventListener('DOMContentLoaded', () => {
     root.addEventListener('pointerleave', () => {
         circle.classList.remove('visible');
     })
-
-    document.fonts.ready.then(() => {
-        const split = new SplitText(".hero-content h1", { type: "words" });
-        
-        gsap.from(split.words, {
-            duration: 0.6,
-            y: 35,
-            opacity: 0,
-            stagger: 0.15,
-            ease: "power2.out",
-            scrollTrigger: {
-                trigger: ".hero-content",
-                scrub: false,
-                markers: false,
-            }
-        });
-    });
 
     // Dialog handler
     function openDialog(className) {
