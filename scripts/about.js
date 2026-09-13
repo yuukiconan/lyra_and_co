@@ -2,10 +2,10 @@ import LyraUI from "./framework.js";
 
 const lyra = new LyraUI("1.1", "Lyra & Co.");
 lyra.animateOnScroll('.people-grid', {
-    target: '.ui-card-people',
+    target: '.ui-person-card',
     stagger: 0.2,
     threshold: 0.5,
-    rootMargin: '0px 0px -200px 0px'
+    rootMargin: '0px 0px -150px 0px'
 })
 
 // const container = document.querySelector('.horizontal-gallery-wrapper');
@@ -56,16 +56,41 @@ async function fetchMembers(targetId) {
     }
 }
 
-const peopleCards = document.querySelectorAll('.ui-card-people');
-const personPanel =  document.querySelector('.ui-person-panel');
-const closePanelBtn =  document.querySelector('.ui-person-panel .close-btn');
-peopleCards.forEach(people => {
-    people.addEventListener('click', (e) => {
-        personPanel.classList.remove('hidden');
-        fetchMembers(e.currentTarget.dataset.person);
-    })
-})
+document.addEventListener('DOMContentLoaded', () => {
+    const lenis = window.lenis;
+    const peopleCards = document.querySelectorAll('.ui-person-card');
+    const personPanel =  document.querySelector('.ui-person-panel');
+    const closePanelBtn =  document.querySelector('.ui-person-panel .close-btn');
 
-closePanelBtn.addEventListener('click', () => {
-    personPanel.classList.add('hidden');
+    function openPanel() {
+        lenis.stop();
+        document.documentElement.classList.add('noscroll');
+        personPanel.classList.remove('hidden');
+    }
+
+    function closePanel() {
+        // reset the previous animation
+        personPanel.style.animation = '';
+
+        requestAnimationFrame(() => {
+            personPanel.style.animation = 'fadeOutLeft .5s cubic-bezier(0.4, 0, 0.2, 1)';
+            personPanel.addEventListener('animationend', () => {
+                personPanel.style.animation = '';
+                personPanel.classList.add('hidden');
+                lenis.start();
+                document.documentElement.classList.remove('noscroll');
+            }, {once: true});
+        })
+    }
+
+    peopleCards.forEach(people => {
+        people.addEventListener('click', (e) => {
+            openPanel();
+            fetchMembers(e.currentTarget.dataset.person);
+        })
+    })
+    
+    closePanelBtn.addEventListener('click', () => {
+        closePanel();
+    })
 })

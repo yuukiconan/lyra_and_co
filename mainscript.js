@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     
-    const peopleCards = document.querySelectorAll('.ui-card-people');
+    const peopleCards = document.querySelectorAll('.ui-person-card');
     if (!peopleCards) return;
 
     const root = document.documentElement;
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
     circle.className = 'circle-cursor';
     circleText.className = 'circle-text';
     peopleCards.forEach(el => {
-        el.setAttribute('data-circle-text', 'Enter');
+        el.setAttribute('data-circle-text', 'View profile');
         el.setAttribute('tabIndex', '0');
     });
     

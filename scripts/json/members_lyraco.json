@@ -3,19 +3,89 @@
         "id": "sharon",
         "name": "Sharon Bethania Djwa",
         "role": "Chief Executive Officer",
-        "avatar_url": "/assets/images/sharon_djwa/sharon-nobg.webp"
+        "avatar_url": "/assets/images/sharon_djwa/sharon-nobg.webp",
+        "quotes": "",
+        "citation": ""
     },
     {
         "id": "noleen",
         "name": "Jessica Noleen Alka",
         "role": "Founder of Lyra & Co.",
-        "avatar_url": "/assets/images/jessica_noleen/jessica-nobg.webp"
+        "avatar_url": "/assets/images/jessica_noleen/jessica-nobg.webp",
+        "quotes": "",
+        "citation": ""
     },
     {
         "id": "carin",
         "name": "Carin Miracle Hartono",
         "role": "Executive Chairman",
-        "avatar_url": "/assets/images/carin_miracle/carin-nobg.webp"
+        "avatar_url": "/assets/images/carin_miracle/carin-nobg.webp",
+        "quotes": "",
+        "citation": ""
+    },
+    {
+        "id": "velanie",
+        "name": "Velanie Zerlina Agatha",
+        "role": "Chief Marketing Officer",
+        "avatar_url": "/assets/images/velanie_agatha/velanie-nobg.webp",
+        "quotes": "",
+        "citation": ""
+    },
+    {
+        "id": "monique",
+        "name": "Monique Tri Tunggadewi",
+        "role": "Chief Creative Director",
+        "avatar_url": "/assets/images/monique/monique-nobg.webp",
+        "quotes": "",
+        "citation": ""
+    },
+    {
+        "id": "mae",
+        "name": "Rhiannon Ava Mae",
+        "role": "Executive of Creative & Art Director",
+        "avatar_url": "/assets/images/mae/mae-nobg.webp",
+        "quotes": "",
+        "citation": ""
+    },
+    {
+        "id": "quinsha",
+        "name": "Quinsha Adelin Antonius",
+        "role": "Marketing Officer - Entrepreneurship",
+        "avatar_url": "/assets/images/quinsha/quinsha-nobg.webp",
+        "quotes": "",
+        "citation": ""
+    },
+    {
+        "id": "joleen",
+        "name": "Charisha Joleen Setiawan",
+        "role": "Graphic Designer",
+        "avatar_url": "/assets/images/charisha_joleen/joleen.webp",
+        "quotes": "",
+        "citation": ""
+    },
+    {
+        "id": "loveany",
+        "name": "Fransisca Loveany Tiana",
+        "role": "Graphic Designer, KTTYME Director",
+        "avatar_url": "/assets/images/loveany/tiana.webp",
+        "quotes": "",
+        "citation": ""
+    },
+    {
+        "id": "audrey",
+        "name": "Audrey Lexayomi Datuan",
+        "role": "Fashion Designer & Muse",
+        "avatar_url": "/assets/images/audrey_datuan/audrey.webp",
+        "quotes": "",
+        "citation": ""
+    },
+    {
+        "id": "evellyne",
+        "name": "Maria Evellyne Halim",
+        "role": "Fashion Designer & Muse",
+        "avatar_url": "/assets/images/evellyne/evellyne.webp",
+        "quotes": "",
+        "citation": ""
     }
 
 ]

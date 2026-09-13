@@ -28,53 +28,54 @@
     <header></header>
     <main>
         <section>
+            <h1 class="section-title short-width hasTopPadding">Explore how we work together</h1>
+            <div class="ui-white-space many">
+                <div class="ui-short-brief">
+                    <h1>We are a team of multidisciplinary professionals who are passionate about design, creativity, and innovation.</h1>
+                    <p> Our team is composed of individuals with diverse backgrounds and expertise, allowing us to approach projects from different perspectives and deliver unique solutions
+                        <br> <br> Recognized for our innovative approach and commitment to excellence and exceed client expectations and drive meaningful results, Sharon Bethania Djwa and Carin Miracle, alongside with fellow partners, Velanie Zerlina Agatha and the founder, Jessica Noleen Alka have succeeded in creating a collaborative environment that fosters growth and innovation, including the Lyra AI, fashion brand, Lovien's Art, Pawon Mbahe, and more.</p>
+                </div>
+            </div>
             <div class="ui-entrance-intro">
                 <div class="ui-entrance-intro__label">
                     <span>Our Professionals</span>
                 </div>
-                <div class="ui-entrance-intro__content">
-                    <div class="ui-entrance-intro__heading">
-                        <h1 class="ui-entrance-heading__line">Explore how</h1>
-                        <h1 class="ui-entrance-heading__line">we work</h1>
-                        <h1 class="ui-entrance-heading__line">together</h1>
-                    </div>
-                    <div class="ui-entrance-intro__section">
-                        <h2> We are a team of multidisciplinary professionals who are passionate about design, creativity, and innovation.</h2>
-                    
-                        <p> Our team is composed of individuals with diverse backgrounds and expertise, allowing us to approach projects from different perspectives and deliver unique solutions
-                        <br> <br> Recognized for our innovative approach and commitment to excellence and exceed client expectations and drive meaningful results, Sharon Bethania Djwa and Carin Miracle, alongside with fellow partners, Velanie Zerlina Agatha and the founder, Jessica Noleen Alka have succeeded in creating a collaborative environment that fosters growth and innovation, including the Lyra AI, fashion brand, Lovien's Art, Pawon Mbahe, and more.</p>
-                    </div>
-                </div>
             </div>
-            <div class="ui-person-panel hidden">
+            <div class="ui-person-panel hidden" data-lenis-prevent>
                 <div class="ui-person-panel__header">
-                    <button class="close-btn" data-dialog-close><div class="line line-1"></div><div class="line line-2"></div></button>
+                    <button class="close-btn"><div class="line line-1"></div><div class="line line-2"></div></button>
                 </div>
                 <div class="ui-person-panel__content">
-                    <span class="ui-warning">Internal UIPersonPanel implementation. Do not leak this project.</span>
-                    <div class="ui-person-panel__item ui-person-panel__biography">
-                        <div class="ui-person-panel__avatar">
-                            <img src="" />
-                        </div>
+                    <div class="ui-person-panel__item ui-person-panel__content-header">
                         <div class="ui-person-panel__names">
-                            <h1></h1>
-                            <span></span>
+                            <h1 class="member-name"></h1>
+                            <span class="member-role"></span>
                         </div>
-                    </div>
-                    <div class="ui-person-panel__item ui-person-panel__quote">
-                        <p></p>
-                        <span></span>
-                    </div>
-                    <div class="ui-person-panel__item ui-person-panel__desc">
-                        <details class="ui-person-panel__dropdown">
-                            <summary>Biography</summary>
+                        <div class="ui-person-panel__small-contact">
+                            <button class="btn btn-outline" id="toPortfolio">Portfolio &rightarrow;</button>
+                        </div>
+                    </div> 
+                    <div class="ui-person-panel__item ui-person-panel__biography">
+                        <div>
+                            <div class="ui-person-panel__avatar">
+                                <img src="" />
+                            </div>
+                            <div class="ui-person-panel__quote">
+                                <p class="ui-person-panel__quotetext"></p>
+                                <span class="ui-person-panel__citation"></span>
+                            </div>
+                        </div>
+                        <div class="ui-person-panel__item ui-person-panel__desc">
+                            <details class="ui-person-panel__dropdown">
+                                <summary>Biography</summary>
+                                
+                            </details>
+                            <details class="ui-person-panel__dropdown">
+                                <summary>About</summary>
+                                <p></p>
+                            </details>
                             
-                        </details>
-                        <details class="ui-person-panel__dropdown">
-                            <summary>About</summary>
-                            <p></p>
-                        </details>
-                        
+                        </div>
                     </div>
                 </div>
             </div>
@@ -82,7 +83,7 @@
         <h1 class="section-title center bold uppercase">The leadership</h1>
         <section class="rm-padding">
             <div class="expressive-grid people-grid">
-                <div class="ui-card-people flexible" data-person="sharon">
+                <div class="ui-person-card flexible" data-person="sharon">
                     <div class="people-avatar">
                         <img src="/assets/images/sharon_djwa/sharon-nobg.webp">
                     </div>
@@ -90,22 +91,21 @@
                         <div class="people-name">
                             <h1>Sharon Bethania Djwa</h1>
                             <span>Chief Executive Officer</span>
-                            <p>I define the agency’s long-term goals, such as market positioning, service expansions, and navigating industry trends.</p>
                         </div>
                     </div>
                 </div>
-                <div class="ui-card-people" data-person="noleen">
+                <div class="ui-person-card" data-person="noleen">
                     <div class="people-avatar">
                         <img src="/assets/images/jessica_noleen/jessica-nobg.webp">
                     </div>
                     <div class="people-info">
                         <div class="people-name">
                             <h1>Jessica Noleen Alka</h1>
-                            <span>Founder of Lyra & Co.</span>
+                            <span>President of Lyra & Co. since 2025</span>
                         </div>
                     </div>
                 </div>
-                <div class="ui-card-people" data-person="carin">
+                <div class="ui-person-card" data-person="carin">
                     <div class="people-avatar">
                         <img src="/assets/images/carin_miracle/carin-nobg.webp">
                     </div>
@@ -119,7 +119,7 @@
             </div>
             <h1 class="section-title center serif italic">Creative Directors</h1>
             <div class="expressive-grid people-grid">
-                <div class="ui-card-people" data-person="velanie">
+                <div class="ui-person-card" data-person="velanie">
                     <div class="people-avatar">
                         <img src="/assets/images/velanie_agatha/velanie-nobg.webp">
                     </div>
@@ -127,11 +127,10 @@
                         <div class="people-name">
                             <h1>Velanie Zerlina Agatha</h1>
                             <span>Chief Marketing Officer</span>
-                            <p>I set the overarching go-to-market strategy, defining market positioning, and crafting the core narrative for the organization.</p>
                         </div>
                     </div>
                 </div>
-                <div class="ui-card-people" data-person="monique">
+                <div class="ui-person-card" data-person="monique">
                     <div class="people-avatar">
                         <img src="/assets/images/monique/monique-nobg.webp">
                     </div>
@@ -139,11 +138,10 @@
                         <div class="people-name">
                             <h1>Monique Tri Tunggadewi</h1>
                             <span>Chief Creative Officer</span>
-                            <p>I define the overall creative vision for campaigns, guide multidisciplinary teams of copywriters and designers, and ensure that all final deliverables align with the client’s brand identity and marketing objectives.</p>
                         </div>
                     </div>
                 </div>
-                <div class="ui-card-people" data-person="mae">
+                <div class="ui-person-card" data-person="mae">
                     <div class="people-avatar">
                         <img src="/assets/images/mae/mae-nobg.webp">
                     </div>
@@ -151,11 +149,10 @@
                         <div class="people-name">
                             <h1>Rhiannon Ava Mae</h1>
                             <span>Executive Creative & Art Director</span>
-                            <p>Partnering with another creative leader, I divide the workload to develop campaigns, mentor teams, pitch to clients, and ensure all visual and conceptual output aligns with client and business goals.</p>
                         </div>
                     </div>
                 </div>
-                <div class="ui-card-people" data-person="quinsha">
+                <div class="ui-person-card" data-person="quinsha">
                     <div class="people-avatar">
                         <img src="/assets/images/quinsha/quinsha-nobg.webp">
                     </div>
@@ -163,51 +160,50 @@
                         <div class="people-name">
                             <h1>Quinsha Adelin Antonius</h1>
                             <span>Marketing Officer &ndash; Entrepreneurship</span>
-                            <p>I'm briefing and guiding graphic designers, illustrators, and animators while reviewing their work for quality and consistency.</p>
                         </div>
                     </div>
                 </div>
-                <div class="ui-card-people flexible" data-person="joleen">
+                <div class="ui-person-card flexible" data-person="joleen">
                     <div class="people-avatar">
                         <img src="/assets/images/charisha_joleen/joleen.webp">
                     </div>
                     <div class="people-info">
                         <div class="people-name">
                             <h1>Charisha Joleen Setiawan</h1>
-                            <span>Creative & Art Director &ndash; Graphic Designer</span>
+                            <span>Graphic Designer</span>
                         </div>
                     </div>
                 </div>
-                <div class="ui-card-people flexible" data-person="loveany">
+                <div class="ui-person-card flexible" data-person="loveany">
                     <div class="people-avatar">
                         <img src="/assets/images/loveany/tiana.webp">
                     </div>
                     <div class="people-info">
                         <div class="people-name">
                             <h1>Fransisca Loveany Tiana</h1>
-                            <span>Creative & Art Director &ndash; Graphic Designer, KTTYME Director</span>
+                            <span>Graphic Designer, KTTYME Director</span>
                         </div>
                     </div>
                 </div>
-                <div class="ui-card-people" data-person="audrey">
+                <div class="ui-person-card" data-person="audrey">
                     <div class="people-avatar">
                         <img src="/assets/images/audrey_datuan/audrey.webp">
                     </div>
                     <div class="people-info">
                         <div class="people-name">
                             <h1>Audrey Lexayomi Datuan</h1>
-                            <span>Creative & Art Director &ndash; Fashion & Muse</span>
+                            <span>Fashion Designer & Muse</span>
                         </div>
                     </div>
                 </div>
-                <div class="ui-card-people" data-person="evellyne" data-circle-text="Enter" tabindex="0">
+                <div class="ui-person-card" data-person="evellyne" data-circle-text="Enter" tabindex="0">
                     <div class="people-avatar">
                         <img src="/assets/images/evellyne/evellyne.webp">
                     </div>
                     <div class="people-info">
                         <div class="people-name">
                             <h1>Maria Evellyne Halim</h1>
-                            <span>Creative &amp; Art Director – Fashion &amp; Muse</span>
+                            <span>Fashion Designer &amp; Muse</span>
                         </div>
                     </div>
                 </div>
