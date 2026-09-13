@@ -642,6 +642,7 @@
         position: relative;
         top: 4px;
         object-fit: cover;
+        transition: opacity .25s cubic-bezier(0.4, 0, 0.2, 1), transform .5s cubic-bezier(0.4, 0, 0.2, 1), visibility .5s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .header-left h1 {
         white-space: nowrap;
@@ -649,7 +650,6 @@
         color: #fff5e2;
         font-weight: 300;
         font-size: 32px;
-        transition: opacity .25s cubic-bezier(0.4, 0, 0.2, 1), transform .5s cubic-bezier(0.4, 0, 0.2, 1), visibility .5s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .header-left h1 b {
         font-weight: 600;
@@ -784,7 +784,6 @@
         display: block;
         width: 100%;
         overflow: hidden;
-        padding: 2px 0;
         border-bottom: 1px solid var(--color-border);
     }
     .menuButton:hover span {
@@ -806,6 +805,7 @@
         text-transform: uppercase;
         text-align: left;
         font-weight: 500;
+        font-family: var(--sans-serif-heading);
         color: var(--color-text);
         transition: color .5s;
         font-size: var(--text-4xl);
@@ -1157,7 +1157,7 @@
 
     .ui-hero {
         width: 100%;
-		padding: clamp(5rem, 3vw, 8rem) var(--ui-gutter) clamp(3rem, 6vw, 5rem);
+		padding: clamp(3rem, 3vw, 8rem) var(--ui-gutter) clamp(3rem, 6vw, 5rem);
 	}
 
 	.ui-hero__topline {
@@ -1706,7 +1706,7 @@
 
     /* UIWhiteSpace */
     .ui-white-space {
-        padding: clamp(2rem, 7vw, 4rem) clamp(1rem, 7vw, 6rem);
+        padding: clamp(2rem, 7vw, 4rem) clamp(1rem, 6vw, 6rem);
     }
     .ui-white-space.many {
         padding: clamp(4rem, 5vw, 8rem) clamp(1rem, 7vw, 6rem);
@@ -2562,8 +2562,13 @@ details[open] > summary::after {
 }
 
 @media (max-width: 768px) {
+    header:has(.hamburger-menu:not(.hidden)) .header-left img {
+        opacity: 0;
+        visibility: hidden;
+    }
     .header-content {
-        padding-inline: 20px;
+        padding: 15px 30px 10px;
+        border-bottom: none ;
     }
     .ui-hero-section .hero-content {
         justify-content: flex-end;
@@ -2607,23 +2612,27 @@ details[open] > summary::after {
     .hamburger {
         gap: 6px
     }
-    section:not(.rm-padding), .hamburger-menu {
-        padding-inline: 20px;
+    section:not(.rm-padding) {
+        padding-inline: 30px;
     }
     .hamburger-menu {
-        padding: 20px 0px;
+        padding: 20px 12px;
     }
     .hamburger-menu-content {
         justify-content: flex-start;
         padding-block-start: 3.5em;
+        gap:0;
+    }
+    
+    .menuButton {
+        border-bottom: none;
     }
     .menuButton div {
         justify-content: flex-start;
         padding-inline: 6px;
     }
     
-    .menuButton .num { font-size: 18px; }
-    .menuButton span { font-size: var(--text-3xl); }
+    .menuButton .num { font-size: 18px; display: none; }
     .menuButton.isHidden {
         display: flex;
     }
@@ -2660,16 +2669,17 @@ details[open] > summary::after {
         font-size: 16px;
     }
     .hamburger-menu-footer {
-        padding-inline: 10px;
+        padding-inline: 4px;
+        overflow: initial;
     }
     .hamburger-menu-footer .stagger-element {
-        flex-direction: row;
-        align-items: center;
+        flex-direction: column;
+        align-items: flex-start;
         gap: 10px;
     }
     .hamburger-menu-actions {
         flex-direction: column;
-        align-items: flex-end;
+        align-items: flex-start;
         gap: 12px;
     }
     .ui-entrance-intro__content {
@@ -2683,6 +2693,15 @@ details[open] > summary::after {
         font-size: var(--text-lg);
     }
     
+    .ui-card-people {
+        margin: 20px 0;
+        padding-inline: 30px;
+        border: none;
+    }
+    .ui-card-people .people-info {
+        padding: 8px 0px 18px
+    }
+    
     .ui-person-panel {
         flex-direction: column;
         justify-content: flex-start;
@@ -2694,5 +2713,18 @@ details[open] > summary::after {
     
     .float-container button span {
         display: none;
+    }
+    
+    /* UIWhiteSpace */
+    .ui-white-space {
+        padding: clamp(2rem, 7vw, 4rem) 0;
+    }
+    .ui-white-space.many {
+        padding: clamp(4rem, 5vw, 8rem) 0;
+    }
+    .ui-white-space.hasGap {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
     }
 }
